@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    if (false) {
+    if (true) {
       router.push("/dashboard");
     } else {
       router.push("/auth/login");
