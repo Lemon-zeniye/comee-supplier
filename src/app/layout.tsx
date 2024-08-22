@@ -11,6 +11,7 @@ import "@mantine/dates/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/dropzone/styles.css";
 import "@mantine/charts/styles.css";
+import Chat from "./_components/chat";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,7 +30,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MantineProvider theme={theme}>
-          <Shell>{children}</Shell>
+          {children}
+          {/* <Chat /> */}
         </MantineProvider>
       </body>
     </html>

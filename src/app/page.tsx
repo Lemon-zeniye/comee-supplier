@@ -1,9 +1,16 @@
+"use client";
 import { Button } from "@mantine/core";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div>
-      <Button>this is button</Button>
-    </div>
-  );
+  const router = useRouter();
+  useEffect(() => {
+    if (false) {
+      router.push("/dashboard");
+    } else {
+      router.push("/auth/login");
+    }
+  }, []);
+  return <></>;
 }
