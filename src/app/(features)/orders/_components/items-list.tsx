@@ -9,6 +9,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { DateInput } from "@mantine/dates";
+import Chat from "@/app/_components/chat";
 
 function ItemsList() {
   const [activeRow, setActiveRow] = useState(-1);
@@ -73,6 +74,7 @@ function ItemsList() {
                           color: "blue",
                         }}
                       />
+                      <Chat />
                     </Menu.Item>
                     <Menu.Item>
                       <IconTrash

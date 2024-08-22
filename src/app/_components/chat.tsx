@@ -8,10 +8,6 @@ function Chat({}) {
   const [opened, { toggle, close }] = useDisclosure(false);
   return (
     <div className="absolute right-5 bottom-2 z-50 cursor-pointer">
-      <IconMessageCircleFilled
-        onClick={toggle}
-        className="w-12 h-12 p-0 flex items-center justify-center text-blue-600"
-      />
       <Dialog
         opened={opened}
         withCloseButton

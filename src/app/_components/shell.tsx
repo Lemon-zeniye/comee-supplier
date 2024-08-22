@@ -1,5 +1,12 @@
 "use client";
-import { AppShell, Burger, Group, ScrollArea } from "@mantine/core";
+import {
+  AppShell,
+  Avatar,
+  Burger,
+  Group,
+  Menu,
+  ScrollArea,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./navbar.module.css";
 
@@ -8,9 +15,12 @@ import {
   IconGauge,
   IconBox,
   IconCirclePercentage,
+  IconBellRinging,
+  IconLogout,
 } from "@tabler/icons-react";
 import { LinksGroup } from "./linkgroup";
 import { usePathname } from "next/navigation";
+import logo from "./comee_logo.png";
 
 const menus = [
   { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
@@ -64,8 +74,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
       }}
       padding="md"
     >
-      <AppShell.Header>
-        <Group h="100%" px="md">
+      <AppShell.Header className=" flex justify-between ">
+        <Group h="100%" w="20%" px="md">
           <Burger
             opened={mobileOpened}
             onClick={toggleMobile}
@@ -78,8 +88,42 @@ export function Shell({ children }: { children: React.ReactNode }) {
             visibleFrom="sm"
             size="sm"
           />
-          Logo
+          <div
+            className="w-3/5 h-1/2"
+            style={{
+              backgroundImage: `url(${logo.src})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "contain",
+            }}
+          />
         </Group>
+        <div className="px-2 flex items-center space-x-4 ">
+          <IconBellRinging size={24} />
+          {/* <AccManager id={user?.id} opened={opened} close={close} /> */}
+
+          <div className="flex space-x-2 items-center">
+            <Menu>
+              <Menu.Target>
+                <Group className="mr-4 cursor-pointer">
+                  <span className=" font-semibold">User Name</span>
+                  <Avatar radius="xl" />
+                </Group>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item
+                  leftSection={<IconLogout />}
+                  // onClick={() => {
+                  //   deleteCookie("token");
+                  //   location.reload();
+                  // }}
+                >
+                  Log out
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          </div>
+        </div>
       </AppShell.Header>
       <AppShell.Navbar>
         <NavbarNested />
